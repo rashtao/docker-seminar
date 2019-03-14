@@ -14,23 +14,35 @@
     docker logs -f easter-calculator
     ```
 
-3. Create an account at [https://hub.docker.com](https://hub.docker.com) and login into it:
+3. run with params 
+
+    ```bash
+    docker run -it --rm easter-calculator:dev ./main.py a b c
+    ```
+
+4. run with envars 
+
+    ```bash
+    docker run -it --rm -e MYVAR=yoyo easter-calculator:dev env
+    ```
+
+5. Create an account at [https://hub.docker.com](https://hub.docker.com) and login into it:
 
     ```bash
     export DOCKER_USER=<yourDockerHubUserName>    
     docker login --username=${DOCKER_USER}
     ```
 
-3. tag & push
+6. tag & push
 
     ```bash
     docker tag easter-calculator:dev docker.io/${DOCKER_USER}/easter-calculator:1.0
     docker push docker.io/${DOCKER_USER}/easter-calculator:1.0
     ```
 
-4. check the image at [https://hub.docker.com/u/<yourDockerHubUserName>](https://hub.docker.com/u/<yourDockerHubUserName>)
+7. check the image at [https://hub.docker.com/u/<yourDockerHubUserName>](https://hub.docker.com/u/<yourDockerHubUserName>)
 
-5. to run the image in another machine:
+8. to run the image in another machine:
 
     ```bash
     docker run -it --name easter-calculator docker.io/${DOCKER_USER}/easter-calculator:1.0
